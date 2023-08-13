@@ -5,9 +5,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <UseState />
+      <UseState name={'Nuevo nombre'}/>
 
-      <ClassState />
+      <ClassState name={'Nuevo nombre 2'}/>
     </div>
   );
 }
