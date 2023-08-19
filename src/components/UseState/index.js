@@ -4,21 +4,21 @@ function UseState ({ name }) {
     const [error, setError] = React.useState(true)
     const [loading, setLoading] = React.useState(false)
 
-    React.useEffect(() => {
-        console.log('Empezando Efecto')
+    // React.useEffect(() => {
+    //     console.log('Empezando Efecto')
         
-        if (loading) {
-            setTimeout(() => {
-                console.log('Empenzando Validación')
+    //     if (loading) {
+    //         setTimeout(() => {
+    //             console.log('Empenzando Validación')
     
-                setLoading(false)
+    //             setLoading(false)
     
-                console.log('Terminando Validación')
-            }, 3000)
-        }
+    //             console.log('Terminando Validación')
+    //         }, 3000)
+    //     }
 
-        console.log('Terminando Efecto')
-    }, [loading])
+    //     console.log('Terminando Efecto')
+    // }, [loading])
 
     return (
         <div>
