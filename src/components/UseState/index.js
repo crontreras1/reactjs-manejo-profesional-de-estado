@@ -52,7 +52,7 @@ function UseState ({ name }) {
             <button 
                 onClick={ () => setLoading(true) }
             > 
-                Dame Click. PLEASE!!!! 
+                Clickeame, Ome!!
             </button>
         </div>
     )
