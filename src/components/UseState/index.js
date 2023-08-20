@@ -18,13 +18,12 @@ function UseState ({ name }) {
 
                 if (value === SECURITY_CODE) {
                     setLoading(false)
+                    setError(false)
                 } else {
                     setError(true)
-
                     setLoading(false)
                 }
-                
-    
+
                 console.log('Terminando Validación')
             }, 3000)
         }
@@ -38,7 +37,7 @@ function UseState ({ name }) {
             
             <p>Escribe el código de seguridad</p>
 
-            { error && <p>Error: La cagaste</p> }
+            { (error && !loading) && <p>Error: La cagaste</p> }
             
             { loading && <p>Loading: Está cargando, mi brother</p> }
 
