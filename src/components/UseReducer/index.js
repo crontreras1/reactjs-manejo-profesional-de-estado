@@ -65,14 +65,14 @@ function UseReducer ({ name }) {
 
                 if (state.value === SECURITY_CODE) {
                     dispatch({
-                        type: 'CONFIRM'
+                        type: actionTypes.confirm
                     })
                     // onConfirm()
                     // setLoading(false)
                     // setError(false)
                 } else {
                     dispatch({
-                        type: 'ERROR'
+                        type: actionTypes.error
                     })
                     // onError()
                     // setError(true)
@@ -102,7 +102,7 @@ function UseReducer ({ name }) {
                     value={ state.value }
                     onChange={ (event) => {
                         dispatch({
-                            type: 'WRITE', 
+                            type: actionTypes.write, 
                             payload: event.target.value 
                         })
                         // onWrite(event.target.value)
@@ -112,7 +112,7 @@ function UseReducer ({ name }) {
                 <button 
                     onClick={ () => 
                         dispatch({
-                            type: 'CHECK'
+                            type: actionTypes.check
                         })
                         // onCheck()
                     }
@@ -129,7 +129,7 @@ function UseReducer ({ name }) {
                 <button
                     onClick={ () => {
                         dispatch({
-                            type: 'DELETE'
+                            type: actionTypes.delete
                         })
                         // onDelete()
                     }}
@@ -138,7 +138,7 @@ function UseReducer ({ name }) {
                 <button
                     onClick={ () => {
                         dispatch({
-                            type: 'RESET'
+                            type: actionTypes.reset
                         })
                         // onReset()
                     }}
@@ -155,7 +155,7 @@ function UseReducer ({ name }) {
                 <button
                    onClick={ () => {
                         dispatch({
-                            type: 'RESET'
+                            type: actionTypes.reset
                         })
                         // onReset()
                     }}
@@ -175,31 +175,41 @@ const initialState = {
     confirmed: false,
 }
 
+const actionTypes = {
+    confirm: 'CONFIRM',
+    error: 'ERROR',
+    write: 'WRITE',
+    check: 'CHECK', 
+    delete: 'DELETE',
+    reset: 'RESET'
+
+}
+
 const reducerObject = (state, payload) => ({
-    'CONFIRM': {
+    [actionTypes.confirm]: {
         ...state,
         error:false,
         loading: false,
         confirmed: true
     },
-    'ERROR': {
+    [actionTypes.error]: {
         ...state,
         error: true,
         loading: false
     },
-    'WRITE': {
+    [actionTypes.write]: {
         ...state,
         value: payload
     },
-    'CHECK': {
+    [actionTypes.check]: {
         ...state,
         loading: true
     },
-    'DELETE': {
+    [actionTypes.delete]: {
         ...state,
         deleted: true
     },
-    'RESET': {
+    [actionTypes.reset]: {
         ...state,
         deleted: false,
         confirmed: false,
